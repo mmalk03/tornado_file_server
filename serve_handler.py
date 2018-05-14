@@ -43,7 +43,6 @@ class ServeHandler(tornado.web.RequestHandler):
 </body>
 </html>
         """
-        print(html)
         return html
 
     def get_available_files(self):
@@ -51,6 +50,4 @@ class ServeHandler(tornado.web.RequestHandler):
         for (root, directories, file_names) in os.walk(self.serve_dir):
             for file_name in file_names:
                 files.append(file_name)
-        print(self.serve_dir)
-        print(files)
         return files
