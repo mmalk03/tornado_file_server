@@ -1,0 +1,12 @@
+*** Destroy piece ***
+- Player should have an ability to destroy piece when he find that it is a sham. Protocol should be enhanced accordingly, in a similar way to passing other game-board messages.
+
+- Does goal change status after placing piece https://bitbucket.org/okulwut/mini-softwareengineering-theprojectgame/issues/25/goalfield-status-after-successful-place
+
+*** Player communication ***
+- All communication should pass through Game Master. The specification needs to be ammended in that area.
+
+- Game Master can place a piece on field containing it and destroy the piece which previously has been in the field
+
+
+- https://bitbucket.org/okulwut/mini-softwareengineering-theprojectgame/issues/24/moveaction-response

@@ -1,0 +1,17 @@
+Lecture 5.
+1. Line drawing
+	-DDA s.5-6			(d)
+	-Bresenham s.11			(b)
+	-Symmetric Bresenham s.12	(s)
+
+2. Circle drawing
+	-Midpoint Circle v.1 s.15			(m*)
+	-Midpoint circle v.2 (additions only) s.17	(m+)
+3. Anti-aliasing
+	-Goupta-Sproull s.22-29 (line drawing with thickness)	(g)
+	-Xiaolin Wu s.30-32 (line & circle drawing)		(w)
+4. Thick line drawing in p.1 (t in {1, 3, 5, 7})
+	-pixel copying		(c)
+	-drawing with pen	(p)
+
+Assignment: s, m*, g, p
