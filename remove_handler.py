@@ -1,5 +1,4 @@
 import os
-import string
 
 import tornado
 
@@ -13,6 +12,7 @@ class RemoveHandler(tornado.web.RequestHandler):
             self.remove_dir += '/'
 
     def post(self, path):
-        print('Removed: ' + self.remove_dir + path)
-        os.remove(self.remove_dir + path)
-        self.redirect('/browse/')
+        path_to_file = self.remove_dir + path
+        os.remove(path_to_file)
+        print('Removed: ' + path_to_file)
+        self.redirect('/')
