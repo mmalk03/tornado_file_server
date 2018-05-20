@@ -19,19 +19,12 @@ class GpioService:
         GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
 
-        GPIO.setup(LED_RED, GPIO.OUT)
-        GPIO.setup(LED_GREEN, GPIO.OUT)
-        GPIO.setup(LED_WHITE, GPIO.OUT)
-        GPIO.setup(LED_BLUE, GPIO.OUT)
+        led_list = [LED_BLUE, LED_GREEN, LED_RED, LED_WHITE]
+        GPIO.setup(led_list, GPIO.OUT)
+        GPIO.output(led_list, GPIO.LOW)
 
-        GPIO.setup(BUTTON_UPPER, GPIO.IN)
-        GPIO.setup(BUTTON_LEFT, GPIO.IN)
-        GPIO.setup(BUTTON_RIGHT, GPIO.IN)
-
-        GPIO.output(LED_RED, GPIO.LOW)
-        GPIO.output(LED_GREEN, GPIO.LOW)
-        GPIO.output(LED_WHITE, GPIO.LOW)
-        GPIO.output(LED_BLUE, GPIO.LOW)
+        button_list = [BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UPPER]
+        GPIO.setup(button_list, GPIO.IN)
 
     @staticmethod
     def register_on_upper_click(callback):
@@ -64,6 +57,10 @@ class GpioService:
         self.switch_on(pin_number)
 
     @staticmethod
+    def cleanup():
+        GPIO.cleanup()
+
+    @staticmethod
     def switch_on(pin_number):
         GPIO.output(pin_number, GPIO.HIGH)
 
@@ -75,7 +72,7 @@ class GpioService:
 
     @staticmethod
     def switch_off(pin_number):
-        GPIO.output(pin_number, GPIO.HIGH)
+        GPIO.output(pin_number, GPIO.LOW)
 
         # bash_command = "gpio clear " + str(pin_number)
         # process = subprocess.Popen(bash_command.split())
@@ -85,7 +82,8 @@ class GpioService:
 
     @staticmethod
     def get_pin_value(pin_number):
-        pass
+        return GPIO.input(pin_number)
+
         # bash_command = "gpio read " + str(pin_number)
         # process = subprocess.Popen(bash_command.split())
         # output, error = process.communicate()
