@@ -5,19 +5,12 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 
+from config import CONFIG
 from index_handler import IndexHandler
+from music_service import MusicService
 from remove_handler import RemoveHandler
 from tornado_app import MyTornadoApplication
 from upload_handler import UploadHandler
-
-defaults = {
-    'port': 8888,
-    'username': 'qwe',
-    'password': '123',
-    'file_serve_dir': 'music',
-    'file_upload_dir': 'music',
-    'static_path': 'static'
-}
 
 
 def main(args):
@@ -35,28 +28,30 @@ def main(args):
     http_server.listen(args.port)
     tornado.ioloop.IOLoop.instance().start()
 
+    music_service = MusicService()
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
         description=(
             'Start a Tornado server to serve, upload and play music files from/to given directory.'))
     parser.add_argument(
-        '--port', type=int, default=defaults['port'],
+        '--port', type=int, default=CONFIG['port'],
         help='Port on which to run server.')
     parser.add_argument(
-        '--username', type=str, default=defaults['username'],
+        '--username', type=str, default=CONFIG['username'],
         help='Username required for authentication.')
     parser.add_argument(
-        '--password', type=str, default=defaults['password'],
+        '--password', type=str, default=CONFIG['password'],
         help='Password required for authentication.')
     parser.add_argument(
-        '--serve-dir', type=str, default=defaults['file_serve_dir'],
+        '--serve-dir', type=str, default=CONFIG['file_serve_dir'],
         help='Directory from which to serve files.')
     parser.add_argument(
-        '--upload-dir', type=str, default=defaults['file_upload_dir'],
+        '--upload-dir', type=str, default=CONFIG['file_upload_dir'],
         help='Directory to which upload files.')
     parser.add_argument(
-        '--static-path', type=str, default=defaults['static_path'],
+        '--static-path', type=str, default=CONFIG['static_path'],
         help='Directory where static files are (e.g. javascript or css).')
     return parser.parse_args()
 
