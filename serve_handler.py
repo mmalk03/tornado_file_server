@@ -36,10 +36,14 @@ class ServeHandler(tornado.web.RequestHandler):
       <tbody>
       """
         for file in files:
-            html = html + "<tr><td><a href=\"http://localhost:8888/download/" + file + "\">" + file + "</a></td></tr>\n"
+            html = html + "<tr><td>" \
+                          """<form action="http://localhost:8888/remove/""" + file + """" method="post">""" \
+                          """<input type="submit" value="X"/>""" \
+                          """<a href="http://localhost:8888/download/""" + file + """">""" + file + "</a></form></td></tr>\n"
         html += """
       </tbody>
     </table>
+    <form action="http://localhost:8888/"><input type="submit" value="Uploads"/></form>
 </body>
 </html>
         """
