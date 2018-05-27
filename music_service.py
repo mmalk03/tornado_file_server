@@ -9,6 +9,7 @@ class MusicService:
     gpio_service = None
 
     def __init__(self):
+        print('Starting music service')
         pygame.mixer.init()
         self.gpio_service = GpioService()
         self.circular_buffer_service = CircularBufferService(self, self.gpio_service)

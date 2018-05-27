@@ -23,12 +23,12 @@ def main(args):
     settings = {
         "static_path": args.static_path
     }
+
+    music_service = MusicService()
     print('Starting music server on port {}'.format(args.port))
     http_server = tornado.httpserver.HTTPServer(MyTornadoApplication(handlers, settings))
     http_server.listen(args.port)
     tornado.ioloop.IOLoop.instance().start()
-
-    music_service = MusicService()
 
 
 def parse_args():

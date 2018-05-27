@@ -16,6 +16,7 @@ class GpioService:
     current_diode = 0
 
     def __init__(self):
+        print('Starting gpio service')
         GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
 
