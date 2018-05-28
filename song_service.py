@@ -9,6 +9,7 @@ class SongService:
     music_service = None
 
     def __init__(self, song_dir, music_service):
+        print('Starting song service')
         self.song_dir = song_dir
         self.music_service = music_service
 

@@ -1,8 +1,12 @@
 import pygame
 
+import config
 from circular_buffer_service import CircularBufferService
+# from signal_service import GpioService
 from gpio_service import GpioService
 
+
+# TODO: swap imports above
 
 class MusicService:
     circular_buffer_service = None
@@ -20,12 +24,12 @@ class MusicService:
     @staticmethod
     def play(song):
         print('Playing: ' + song)
-        pygame.mixer.load(song)
-        pygame.mixer.play()
+        pygame.mixer.music.load(config.CONFIG['song_dir'] + '/' + song)
+        pygame.mixer.music.play()
 
     @staticmethod
     def set_volume(volume):
-        print('Setting volume to: ' + volume)
+        print('Setting volume to: ' + str(volume))
         pygame.mixer.music.set_volume(volume)
 
     @staticmethod
