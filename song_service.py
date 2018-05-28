@@ -17,7 +17,7 @@ class SongService:
         files = []
         for (root, directories, file_names) in os.walk(self.song_dir):
             for file_name in file_names:
-                if file_name.endswith('.mp3'):
+                if file_name.endswith('.wav'):
                     files.append(file_name)
         return files
 

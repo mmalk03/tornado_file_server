@@ -13,9 +13,14 @@ class UploadHandler(tornado.web.RequestHandler):
 
     # TODO: display login dialog
     def post(self):
-        uploaded_file = self.request.files['uploaded_file'][0]
+        try:
+            uploaded_file = self.request.files['uploaded_file'][0]
+        except:
+            print('Wrong format')
+            self.redirect('/')
+
         original_filename = uploaded_file['filename']
-        if original_filename.endswith('.mp3'):
+        if original_filename.endswith('.wav'):
             output_file = open(self.upload_dir + original_filename, 'wb')
             output_file.write(uploaded_file['body'])
             print('Uploaded: ' + original_filename)

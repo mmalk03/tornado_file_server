@@ -27,7 +27,7 @@ class CircularBufferService:
             self.gpio_service.select_green()
 
     def next_service(self, signum=None, frame=None):
-        if self.index == 2:
+        if self.index >= 2:
             self.index = 0
         else:
             self.index += 1
