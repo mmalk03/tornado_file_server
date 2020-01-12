@@ -35,4 +35,3 @@ test(cd.on_right_click)
 test(cd.on_right_click)
 test(cd.on_right_click)
 test(cd.on_right_click)
-

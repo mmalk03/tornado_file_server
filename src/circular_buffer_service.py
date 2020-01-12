@@ -1,7 +1,7 @@
-import config
-from power_service import PowerService
-from song_service import SongService
-from volume_service import VolumeService
+from src import config
+from src.power_service import PowerService
+from src.song_service import SongService
+from src.volume_service import VolumeService
 
 
 class CircularBufferService:

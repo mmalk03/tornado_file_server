@@ -1,9 +1,9 @@
 import pygame
 
-import config
-from circular_buffer_service import CircularBufferService
+from src import config
+from src.circular_buffer_service import CircularBufferService
 # from signal_service import GpioService
-from gpio_service import GpioService
+from src.gpio_service import GpioService
 
 
 # TODO: swap imports above

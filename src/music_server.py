@@ -5,12 +5,12 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 
-from config import CONFIG
-from index_handler import IndexHandler
-from music_service import MusicService
-from remove_handler import RemoveHandler
-from tornado_app import MyTornadoApplication
-from upload_handler import UploadHandler
+from src.config import CONFIG
+from src.index_handler import IndexHandler
+from src.music_service import MusicService
+from src.remove_handler import RemoveHandler
+from src.tornado_app import MyTornadoApplication
+from src.upload_handler import UploadHandler
 
 
 def main(args):
